@@ -1,0 +1,42 @@
+
+Question Link- https://leetcode.com/problems/move-zeroes/description/
+
+Approach -
+1)jabtak pehla 0 na mile iterate k;
+2) o mila to set i=k, j=k+1;
+3) while( i<n and j<n) if j !=0;
+swap arr[i] ,arr[j]
+
+
+code-
+```class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int k=0;
+        while(k<nums.size()){
+            if(nums[k]==0){
+                break;
+            }
+            else{
+                k++;
+            }
+        }
+        int i=k;
+        int j=k+1;
+        while(i<nums.size() and j<nums.size()){
+            if(nums[j]!=0){
+                swap(nums[i],nums[j]);
+                i++;
+            }
+            j++;
+        }
+    }
+};```
+
+
+
+extra-
+space(1)
+time(n)
+
+

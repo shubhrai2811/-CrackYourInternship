@@ -1,0 +1,40 @@
+Question Link- https://leetcode.com/problems/find-the-duplicate-number/description/
+
+Approach -
+
+In summary, the code uses Floyd's Tortoise and Hare algorithm to detect the cycle in the nums array, 
+considering it as a linked list. It first finds the meeting point of the two pointers, 
+then moves one pointer back to the first element and continues moving both pointers until they meet again at the entry point of the cycle.
+ This entry point represents the repeated number in the nums array.
+
+
+code-
+```
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+     int slow = nums[0];
+     int fast = nums[0];  
+     do{
+         slow=nums[slow];
+         fast=nums[nums[fast]];
+
+     }while(slow!=fast);
+     fast=nums[0];
+     while(slow!=fast){
+         slow=nums[slow];
+         fast=nums[fast];
+     }
+
+    return slow;
+    }
+};
+
+```
+
+
+
+
+extra-
+
+
